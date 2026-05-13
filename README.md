@@ -4,7 +4,7 @@ A system that automatically evaluates RAG (Retrieval Augmented Generation) pipel
 quality using RAGAS metrics — measuring faithfulness, answer relevancy, context 
 precision, and context recall across configurable pipeline settings.
 
-**Live App:** [Click here to view the app](your-streamlit-url-here)
+**Live App:** [Click here to view the app](https://rag-evaluation-cy9koabpjkrtwwtsxfh4jw.streamlit.app/)
 
 ---
 
