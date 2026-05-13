@@ -1,0 +1,129 @@
+{
+  "timestamp": "20260513_194355",
+  "settings": {
+    "chunk_size": 500,
+    "chunk_overlap": 100,
+    "k": 3
+  },
+  "overall_scores": {
+    "faithfulness": 0.9375,
+    "answer_relevancy": 0.5611049086893043,
+    "context_precision": 0.8854166666140624,
+    "context_recall": 0.5,
+    "overall": 0.7210053938258416
+  },
+  "detailed_results": [
+    {
+      "question": "What was Tesla's total revenue in 2023?",
+      "answer": "Total revenues in 2023 were $96,773 million.",
+      "ground_truth": "Tesla's total revenue in 2023 was $96.773 billion.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9311424244114224,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0,
+      "contexts": [
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tOperations\n(in\tmillions,\texcept\tper\tshare\tdata)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nRevenues\nAutomotive\tsales\n$\n78,509\n\t\n$\n67,210\n\t\n$\n44,125\n\t\nAutomotive\tregulatory\tcredits\n1,790\n\t\n1,776\n\t\n1,465\n\t\nAutomotive\tleasing\n2,120\n\t\n2,476\n\t\n1,642\n\t\nTotal\tautomotive\trevenues\n82,419\n\t\n71,462\n\t\n47,232\n\t\nEnergy\tgeneration\tand\tstorage\n6,035\n\t\n3,909\n\t\n2,789\n\t\nServices\tand\tother\n8,319\n\t\n6,091\n\t\n3,802\n\t\nTotal\trevenues\n96,773\n\t\n81,462\n\t\n53,823\n\t\nCost\tof\trevenues",
+        "2.23\n\tbillion\tof\tannual\ttax\trevenues\tstarting\tat\tthe\tend\tof\t2023.\tAs\tof\tDecember\t31,\n2023,\twe\thave\tmet\tand\texpect\tto\tmeet\tthe\ttax\trevenue\trequirements\tbased\ton\tour\tcurrent\tlevel\tof\tspend\tand\tsales.\nLegal\tProceedings\nLitigation\tRelating\tto\t2018\tCEO\tPerformance\tAward\nOn\tJune\t4,\t2018,\ta\tpurported\tTesla\tstockholder\tfiled\ta\tputative\tclass\tand\tderivative\taction\tin\tthe\tDelaware\tCourt\tof\tChancery\tagainst\tElon\tMusk\tand",
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tComprehensive\tIncome\n(in\tmillions)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nNet\tincome\n$\n14,974\n\t\n$\n12,587\n\t\n$\n5,644\n\t\nOther\tcomprehensive\tincome\t(loss):\nForeign\tcurrency\ttranslation\tadjustment\n198\n\t\n(\n392\n)\n(\n308\n)\nUnrealized\tnet\tgain\t(loss)\ton\tinvestments\n16\n\t\n(\n23\n)\n(\n1\n)\nAdjustment\tfor\tnet\tloss\trealized\tand\tincluded\tin\tnet\tincome\t\t\t\t\n4\n\t\n\u2014\n\t\n\u2014\n\t\nComprehensive\tincome\n15,192\n\t\n12,172\n\t\n5,335"
+      ]
+    },
+    {
+      "question": "How many vehicles did Tesla deliver in 2023?",
+      "answer": "473,382",
+      "ground_truth": "Tesla delivered approximately 1.81 million vehicles in 2023.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7544886642038009,
+      "context_precision": 0.9999999999,
+      "context_recall": 0.0,
+      "contexts": [
+        "2022,\tprimarily\tdue\tto\tan\tincrease\tof\t473,382\tcombined\tModel\t3\tand\tModel\tY\tcash\tdeliveries\tfrom\tproduction\tramping\tof\tModel\tY\tglobally.\tThe\tincrease\nwas\tpartially\toffset\tby\ta\tlower\taverage\tselling\tprice\ton\tour\tvehicles\tdriven\tby\toverall\tprice\treductions\tyear\tover\tyear,\tsales\tmix,\tand\ta\tnegative\timpact\nfrom\tthe\tUnited\tStates\tdollar\tstrengthening\tagainst\tother\tforeign\tcurrencies\tin\tthe\tyear\tended\tDecember\t31,\t2023\tcompared\tto\tthe\tprior\tyear.",
+        "of\tour\tvehicles,\tparticularly\thigher-volume\tadditions\tto\tour\tfleet\tsuch\tas\tModel\t3\tand\tModel\tY,\tit\tcould\toverburden\tour\tservicing\tcapabilities\tand\tparts\ninventory.\tSimilarly,\tthe\tincreasing\tnumber\tof\tTesla\tvehicles\talso\trequires\tus\tto\tcontinue\tto\trapidly\tincrease\tthe\tnumber\tof\tour\tSupercharger\tstations\tand\nconnectors\tthroughout\tthe\tworld.\nThere\tis\tno\tassurance\tthat\twe\twill\tbe\table\tto\tramp\tour\tbusiness\tto\tmeet\tour\tsales,\tdelivery,\tinstallation,\tservicing\tand\tvehicle\tcharging\ttargets",
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tOperations\n(in\tmillions,\texcept\tper\tshare\tdata)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nRevenues\nAutomotive\tsales\n$\n78,509\n\t\n$\n67,210\n\t\n$\n44,125\n\t\nAutomotive\tregulatory\tcredits\n1,790\n\t\n1,776\n\t\n1,465\n\t\nAutomotive\tleasing\n2,120\n\t\n2,476\n\t\n1,642\n\t\nTotal\tautomotive\trevenues\n82,419\n\t\n71,462\n\t\n47,232\n\t\nEnergy\tgeneration\tand\tstorage\n6,035\n\t\n3,909\n\t\n2,789\n\t\nServices\tand\tother\n8,319\n\t\n6,091\n\t\n3,802\n\t\nTotal\trevenues\n96,773\n\t\n81,462\n\t\n53,823\n\t\nCost\tof\trevenues"
+      ]
+    },
+    {
+      "question": "What was Tesla's net income in 2023?",
+      "answer": "$14,974 million",
+      "ground_truth": "Tesla's net income in 2023 was $14.997 billion.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0,
+      "contexts": [
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tComprehensive\tIncome\n(in\tmillions)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nNet\tincome\n$\n14,974\n\t\n$\n12,587\n\t\n$\n5,644\n\t\nOther\tcomprehensive\tincome\t(loss):\nForeign\tcurrency\ttranslation\tadjustment\n198\n\t\n(\n392\n)\n(\n308\n)\nUnrealized\tnet\tgain\t(loss)\ton\tinvestments\n16\n\t\n(\n23\n)\n(\n1\n)\nAdjustment\tfor\tnet\tloss\trealized\tand\tincluded\tin\tnet\tincome\t\t\t\t\n4\n\t\n\u2014\n\t\n\u2014\n\t\nComprehensive\tincome\n15,192\n\t\n12,172\n\t\n5,335",
+        "2.23\n\tbillion\tof\tannual\ttax\trevenues\tstarting\tat\tthe\tend\tof\t2023.\tAs\tof\tDecember\t31,\n2023,\twe\thave\tmet\tand\texpect\tto\tmeet\tthe\ttax\trevenue\trequirements\tbased\ton\tour\tcurrent\tlevel\tof\tspend\tand\tsales.\nLegal\tProceedings\nLitigation\tRelating\tto\t2018\tCEO\tPerformance\tAward\nOn\tJune\t4,\t2018,\ta\tpurported\tTesla\tstockholder\tfiled\ta\tputative\tclass\tand\tderivative\taction\tin\tthe\tDelaware\tCourt\tof\tChancery\tagainst\tElon\tMusk\tand",
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tCash\tFlows\n(in\tmillions)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nCash\tFlows\tfrom\tOperating\tActivities\nNet\tincome\n$\n14,974\n\t\n$\n12,587\n\t\n$\n5,644\n\t\nAdjustments\tto\treconcile\tnet\tincome\tto\tnet\tcash\tprovided\tby\toperating\tactivities:\nDepreciation,\tamortization\tand\timpairment\n4,667\n\t\n3,747\n\t\n2,911\n\t\nStock-based\tcompensation\n1,812\n\t\n1,560\n\t\n2,121\n\t\nInventory\tand\tpurchase\tcommitments\twrite-downs\n463\n\t\n177\n\t\n140\n\t\nForeign\tcurrency\ttransaction\tnet\tunrealized\t(gain)\tloss"
+      ]
+    },
+    {
+      "question": "What are Tesla's main business segments?",
+      "answer": "Tesla's main business segments are automotive and energy generation and storage.",
+      "ground_truth": "Tesla's main business segments are Automotive, Energy Generation and Storage, and Services and Other.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0000000000000002,
+      "context_precision": 0.9999999999666667,
+      "context_recall": 1.0,
+      "contexts": [
+        "Our\tmission\tis\tto\taccelerate\tthe\tworld\u2019s\ttransition\tto\tsustainable\tenergy.\tWe\tbelieve\tthat\tthis\tmission,\talong\twith\tour\tengineering\texpertise,\nvertically\tintegrated\tbusiness\tmodel\tand\tfocus\ton\tuser\texperience\tdifferentiate\tus\tfrom\tother\tcompanies.\nSegment\tInformation\nWe\toperate\tas\ttwo\treportable\tsegments:\t(i)\tautomotive\tand\t(ii)\tenergy\tgeneration\tand\tstorage.",
+        "We\toperate\tas\ttwo\treportable\tsegments:\t(i)\tautomotive\tand\t(ii)\tenergy\tgeneration\tand\tstorage.\nThe\tautomotive\tsegment\tincludes\tthe\tdesign,\tdevelopment,\tmanufacturing,\tsales\tand\tleasing\tof\thigh-performance\tfully\telectric\tvehicles\tas\twell\tas\nsales\tof\tautomotive\tregulatory\tcredits.\tAdditionally,\tthe\tautomotive\tsegment\talso\tincludes\tservices\tand\tother,\twhich\tincludes\tsales\tof\tused\tvehicles,\tnon-",
+        "segment\tis\talso\tcomprised\tof\tservices\tand\tother,\twhich\tincludes\tsales\tof\tused\tvehicles,\tnon-warranty\tafter-sales\tvehicle\tservices,\tbody\tshop\tand\tparts,\npaid\tSupercharging,\tvehicle\tinsurance\trevenue\tand\tretail\tmerchandise.\tThe\tenergy\tgeneration\tand\tstorage\tsegment\tincludes\tthe\tdesign,\tmanufacture,\ninstallation,\tsales\tand\tleasing\tof\tsolar\tenergy\tgeneration\tand\tenergy\tstorage\tproducts\tand\trelated\tservices\tand\tsales\tof\tsolar\tenergy\tsystems\tincentives."
+      ]
+    },
+    {
+      "question": "What was Tesla's gross profit margin in 2023?",
+      "answer": "The gross margin for energy generation and storage in 2023 was 18.9%.",
+      "ground_truth": "Tesla's gross profit margin in 2023 was approximately 18.2%.",
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.90577166368808,
+      "context_precision": 0.5833333333041666,
+      "context_recall": 0.0,
+      "contexts": [
+        "2.23\n\tbillion\tof\tannual\ttax\trevenues\tstarting\tat\tthe\tend\tof\t2023.\tAs\tof\tDecember\t31,\n2023,\twe\thave\tmet\tand\texpect\tto\tmeet\tthe\ttax\trevenue\trequirements\tbased\ton\tour\tcurrent\tlevel\tof\tspend\tand\tsales.\nLegal\tProceedings\nLitigation\tRelating\tto\t2018\tCEO\tPerformance\tAward\nOn\tJune\t4,\t2018,\ta\tpurported\tTesla\tstockholder\tfiled\ta\tputative\tclass\tand\tderivative\taction\tin\tthe\tDelaware\tCourt\tof\tChancery\tagainst\tElon\tMusk\tand",
+        "Gross\tmargin\tfor\tenergy\tgeneration\tand\tstorage\tincreased\tfrom\t7.4%\tto\t18.9%\tin\tthe\tyear\tended\tDecember\t31,\t2023\tas\tcompared\tto\tthe\tyear\nended\tDecember\t31,\t2022.\tThe\tincrease\twas\tdriven\tby\tan\timprovement\tin\tour\tMegapack\tgross\tmargin\tfrom\tlower\taverage\tcost\tper\tMWh\tand\ta\thigher\nproportion\tof\tMegapack,\twhich\toperated\tat\ta\thigher\tgross\tmargin,\twithin\tthe\tsegment\tas\tcompared\tto\tthe\tprior\tyear\tperiods.\tAdditionally,\tthere\twas\ta\nmargin\tbenefit\tfrom\tIRA\tmanufacturing\tcredits\tearned.",
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tOperations\n(in\tmillions,\texcept\tper\tshare\tdata)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nRevenues\nAutomotive\tsales\n$\n78,509\n\t\n$\n67,210\n\t\n$\n44,125\n\t\nAutomotive\tregulatory\tcredits\n1,790\n\t\n1,776\n\t\n1,465\n\t\nAutomotive\tleasing\n2,120\n\t\n2,476\n\t\n1,642\n\t\nTotal\tautomotive\trevenues\n82,419\n\t\n71,462\n\t\n47,232\n\t\nEnergy\tgeneration\tand\tstorage\n6,035\n\t\n3,909\n\t\n2,789\n\t\nServices\tand\tother\n8,319\n\t\n6,091\n\t\n3,802\n\t\nTotal\trevenues\n96,773\n\t\n81,462\n\t\n53,823\n\t\nCost\tof\trevenues"
+      ]
+    },
+    {
+      "question": "Who is the CEO of Tesla?",
+      "answer": "Elon Musk",
+      "ground_truth": "Elon Musk is the CEO of Tesla.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8974365172111309,
+      "context_precision": 0.9999999999666667,
+      "context_recall": 1.0,
+      "contexts": [
+        "Table\tof\tContents\nWe\tare\thighly\tdependent\ton\tthe\tservices\tof\tElon\tMusk,\tTechnoking\tof\tTesla\tand\tour\tChief\tExecutive\tOfficer.\nWe\tare\thighly\tdependent\ton\tthe\tservices\tof\tElon\tMusk,\tTechnoking\tof\tTesla\tand\tour\tChief\tExecutive\tOfficer.\tAlthough\tMr.\tMusk\tspends\tsignificant\ntime\twith\tTesla\tand\tis\thighly\tactive\tin\tour\tmanagement,\the\tdoes\tnot\tdevote\this\tfull\ttime\tand\tattention\tto\tTesla.\tMr.\tMusk\talso\tcurrently\tserves\tas\tChief",
+        "Date:\tJanuary\t26,\t2024\n/s/\tElon\tMusk\n\t\nElon\tMusk\n\t\nChief\tExecutive\tOfficer\n\t\n(Principal\tExecutive\tOfficer)\nI,\tVaibhav\tTaneja,\tcertify,\tpursuant\tto\t18\tU.S.C.\tSection\t1350,\tthat,\tto\tmy\tknowledge,\tthe\tAnnual\tReport\tof\tTesla,\tInc.\ton\tForm\t10-K\tfor\tthe\tannual\tperiod\nended\tDecember\t31,\t2023,\t(i)\tfully\tcomplies\twith\tthe\trequirements\tof\tSection\t13(a)\tor\t15(d)\tof\tthe\tSecurities\tExchange\tAct\tof\t1934\tand\t(ii)\tthat\tthe",
+        "Tesla,\tInc.\nNotes\tto\tConsolidated\tFinancial\tStatements\nNote\t1\t\u2013\t\nOverview\nTesla,\tInc.\t(\u201cTesla\u201d,\tthe\t\u201cCompany\u201d,\t\u201cwe\u201d,\t\u201cus\u201d\tor\t\u201cour\u201d)\twas\tincorporated\tin\tthe\tState\tof\tDelaware\ton\tJuly\t1,\t2003.\tWe\tdesign,\tdevelop,\nmanufacture,\tsell\tand\tlease\thigh-performance\tfully\telectric\tvehicles\tand\tenergy\tgeneration\tand\tstorage\tsystems,\tand\toffer\tservices\trelated\tto\tour\nproducts.\tOur\tChief\tExecutive\tOfficer,\tas\tthe\tchief\toperating\tdecision\tmaker\t(\u201cCODM\u201d),\torganizes\tour\tcompany,\tmanages\tresource\tallocations\tand"
+      ]
+    },
+    {
+      "question": "What new vehicle models did Tesla introduce in 2023?",
+      "answer": "The context does not contain enough information to answer this question.",
+      "ground_truth": "Tesla updated the Model 3 and continued production of the Cybertruck which began deliveries in late 2023.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.9999999999,
+      "context_recall": 0.0,
+      "contexts": [
+        "Active\nGigafactory\tShanghai\nModel\t3\t/\tModel\tY\nActive\nGigafactory\tBerlin-Brandenburg\nModel\tY\nActive\nGigafactory\tTexas\nModel\tY\nActive\n\t\nCybertruck\nActive\nGigafactory\tNevada\nTesla\tSemi\nPilot\tproduction\nVarious\nNext\tGeneration\tPlatform\nIn\tdevelopment\nTBD\nTesla\tRoadster\nIn\tdevelopment\nWe\tare\tfocused\ton\tgrowing\tour\tmanufacturing\tcapacity,\twhich\tincludes\tcapacity\tfor\tmanufacturing\tnew\tvehicle\tmodels\tsuch\tas\tour\tCybertruck\tand",
+        "2022,\tprimarily\tdue\tto\tan\tincrease\tof\t473,382\tcombined\tModel\t3\tand\tModel\tY\tcash\tdeliveries\tfrom\tproduction\tramping\tof\tModel\tY\tglobally.\tThe\tincrease\nwas\tpartially\toffset\tby\ta\tlower\taverage\tselling\tprice\ton\tour\tvehicles\tdriven\tby\toverall\tprice\treductions\tyear\tover\tyear,\tsales\tmix,\tand\ta\tnegative\timpact\nfrom\tthe\tUnited\tStates\tdollar\tstrengthening\tagainst\tother\tforeign\tcurrencies\tin\tthe\tyear\tended\tDecember\t31,\t2023\tcompared\tto\tthe\tprior\tyear.",
+        "the\tutility\tand\tstrength\tof\ta\ttruck\twhile\tfeaturing\tthe\tspeed\tof\ta\tsports\tcar.\nIn\t2022,\twe\talso\tbegan\tearly\tproduction\tand\tdeliveries\tof\ta\tcommercial\telectric\tvehicle,\tthe\tTesla\tSemi.\tWe\thave\tplanned\telectric\tvehicles\tto\naddress\tadditional\tvehicle\tmarkets,\tand\tto\tcontinue\tleveraging\tdevelopments\tin\tour\tproprietary\tFull\tSelf-Driving\t(\u201cFSD\u201d)\tCapability\tfeatures,\tbattery\tcell\nand\tother\ttechnologies.\nEnergy\tGeneration\tand\tStorage\nEnergy\tStorage\tProducts"
+      ]
+    },
+    {
+      "question": "What were Tesla's total operating expenses in 2023?",
+      "answer": "The context does not contain enough information to answer this question.",
+      "ground_truth": "Tesla's total operating expenses in 2023 were approximately $8.769 billion.",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 0.0,
+      "contexts": [
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tOperations\n(in\tmillions,\texcept\tper\tshare\tdata)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nRevenues\nAutomotive\tsales\n$\n78,509\n\t\n$\n67,210\n\t\n$\n44,125\n\t\nAutomotive\tregulatory\tcredits\n1,790\n\t\n1,776\n\t\n1,465\n\t\nAutomotive\tleasing\n2,120\n\t\n2,476\n\t\n1,642\n\t\nTotal\tautomotive\trevenues\n82,419\n\t\n71,462\n\t\n47,232\n\t\nEnergy\tgeneration\tand\tstorage\n6,035\n\t\n3,909\n\t\n2,789\n\t\nServices\tand\tother\n8,319\n\t\n6,091\n\t\n3,802\n\t\nTotal\trevenues\n96,773\n\t\n81,462\n\t\n53,823\n\t\nCost\tof\trevenues",
+        "2.23\n\tbillion\tof\tannual\ttax\trevenues\tstarting\tat\tthe\tend\tof\t2023.\tAs\tof\tDecember\t31,\n2023,\twe\thave\tmet\tand\texpect\tto\tmeet\tthe\ttax\trevenue\trequirements\tbased\ton\tour\tcurrent\tlevel\tof\tspend\tand\tsales.\nLegal\tProceedings\nLitigation\tRelating\tto\t2018\tCEO\tPerformance\tAward\nOn\tJune\t4,\t2018,\ta\tpurported\tTesla\tstockholder\tfiled\ta\tputative\tclass\tand\tderivative\taction\tin\tthe\tDelaware\tCourt\tof\tChancery\tagainst\tElon\tMusk\tand",
+        "Tesla,\tInc.\nConsolidated\tStatements\tof\tCash\tFlows\n(in\tmillions)\nYear\tEnded\tDecember\t31,\n2023\n2022\n2021\nCash\tFlows\tfrom\tOperating\tActivities\nNet\tincome\n$\n14,974\n\t\n$\n12,587\n\t\n$\n5,644\n\t\nAdjustments\tto\treconcile\tnet\tincome\tto\tnet\tcash\tprovided\tby\toperating\tactivities:\nDepreciation,\tamortization\tand\timpairment\n4,667\n\t\n3,747\n\t\n2,911\n\t\nStock-based\tcompensation\n1,812\n\t\n1,560\n\t\n2,121\n\t\nInventory\tand\tpurchase\tcommitments\twrite-downs\n463\n\t\n177\n\t\n140\n\t\nForeign\tcurrency\ttransaction\tnet\tunrealized\t(gain)\tloss"
+      ]
+    }
+  ]
+}

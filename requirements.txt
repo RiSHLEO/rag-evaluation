@@ -1,0 +1,13 @@
+ragas
+langchain
+langchain-community
+langchain-openai
+langchain-text-splitters
+chromadb
+openai
+streamlit
+pandas
+plotly
+pypdf
+python-dotenv
+datasets
