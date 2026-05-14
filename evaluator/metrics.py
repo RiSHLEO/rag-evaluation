@@ -22,16 +22,13 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 def run_evaluation(pdf_path: str, chunk_size: int = 1000,
-                   chunk_overlap: int = 200, k: int = 3) -> dict:
-    """
-    Run full RAGAS evaluation on a RAG pipeline.
-    Returns scores and detailed results for each question.
-    """
+                   chunk_overlap: int = 200, k: int = 3,
+                   pipeline_type: str = "Naive RAG") -> dict:
 
-    print(f"Building RAG pipeline...")
+    print(f"Building {pipeline_type} pipeline...")
     print(f"Settings: chunk_size={chunk_size}, chunk_overlap={chunk_overlap}, k={k}")
 
-    # Configure RAGAS with explicit LLM and embeddings
+    # Configure RAGAS
     ragas_llm = LangchainLLMWrapper(ChatOpenAI(
         model="gpt-3.5-turbo",
         temperature=0,
@@ -39,17 +36,35 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
     ))
     ragas_embeddings = LangchainEmbeddingsWrapper(OpenAIEmbeddings(api_key=api_key))
 
-    # Build the pipeline
-    chain, retriever = build_rag_pipeline(
-        pdf_path=pdf_path,
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        k=k
-    )
+    # Build pipeline based on type
+    if pipeline_type == "Advanced RAG":
+        import sys
+        advanced_path = os.path.join(
+            os.path.dirname(__file__), '..', '..', 'advanced-rag', 'retrieval'
+        )
+        sys.path.insert(0, advanced_path)
+        from advanced_pipeline import build_advanced_pipeline
+
+        run_query = build_advanced_pipeline(pdf_path, chunk_size, chunk_overlap)
+
+        def get_answer_fn(question):
+            answer, chunks = run_query(question)
+            contexts = [chunk.page_content for chunk in chunks]
+            return answer, contexts
+
+    else:
+        chain, retriever = build_rag_pipeline(
+            pdf_path=pdf_path,
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            k=k
+        )
+
+        def get_answer_fn(question):
+            return get_answer_and_contexts(chain, retriever, question)
 
     print(f"Running {len(TEST_QUESTIONS)} test questions...")
 
-    # Collect results for each question
     questions = []
     answers = []
     contexts = []
@@ -58,9 +73,7 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
     for i, item in enumerate(TEST_QUESTIONS):
         print(f"  Question {i+1}/{len(TEST_QUESTIONS)}: {item['question'][:50]}...")
 
-        answer, context = get_answer_and_contexts(
-            chain, retriever, item["question"]
-        )
+        answer, context = get_answer_fn(item["question"])
 
         questions.append(item["question"])
         answers.append(answer)
@@ -69,7 +82,6 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
 
     print("Running RAGAS evaluation...")
 
-    # Create RAGAS dataset
     dataset = Dataset.from_dict({
         "question": questions,
         "answer": answers,
@@ -77,7 +89,6 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
         "ground_truth": ground_truths
     })
 
-    # Run evaluation
     results = evaluate(
         dataset=dataset,
         metrics=[
@@ -90,10 +101,8 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
         embeddings=ragas_embeddings
     )
 
-    # Convert to dataframe
     results_df = results.to_pandas()
 
-    # Calculate overall scores
     overall_scores = {
         "faithfulness": float(results_df["faithfulness"].mean()),
         "answer_relevancy": float(results_df["answer_relevancy"].mean()),
@@ -103,7 +112,6 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
                                       "context_precision", "context_recall"]].mean().mean())
     }
 
-    # Build detailed results
     detailed_results = []
     for i, row in results_df.iterrows():
         detailed_results.append({
@@ -117,13 +125,17 @@ def run_evaluation(pdf_path: str, chunk_size: int = 1000,
             "contexts": contexts[i]
         })
 
-    # Save results
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    results_file = os.path.join(base_dir, "results",
-                                f"evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}_cs{chunk_size}_k{k}.json")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    pipeline_label = "advanced" if pipeline_type == "Advanced RAG" else "naive"
+    results_file = os.path.join(
+        base_dir, "results",
+        f"evaluation_{timestamp}_{pipeline_label}_cs{chunk_size}_k{k}.json"
+    )
 
     output = {
-        "timestamp": datetime.now().strftime("%Y%m%d_%H%M%S"),
+        "timestamp": timestamp,
+        "pipeline_type": pipeline_type,
         "settings": {
             "chunk_size": chunk_size,
             "chunk_overlap": chunk_overlap,

@@ -16,7 +16,13 @@ st.write("Evaluate your RAG pipeline quality using RAGAS metrics.")
 # ============ SIDEBAR — SETTINGS ============
 
 st.sidebar.header("⚙️ Pipeline Settings")
-st.sidebar.write("Adjust these settings to see how they affect RAG quality.")
+
+pipeline_type = st.sidebar.radio(
+    "Pipeline Type",
+    ["Naive RAG", "Advanced RAG"]
+)
+
+st.sidebar.markdown("---")
 
 chunk_size = st.sidebar.slider(
     "Chunk Size",
@@ -24,7 +30,7 @@ chunk_size = st.sidebar.slider(
     max_value=2000,
     value=1000,
     step=100,
-    help="Number of characters per chunk. Smaller = more precise retrieval. Larger = more context per chunk."
+    help="Number of characters per chunk."
 )
 
 chunk_overlap = st.sidebar.slider(
@@ -33,7 +39,7 @@ chunk_overlap = st.sidebar.slider(
     max_value=400,
     value=200,
     step=50,
-    help="Characters shared between adjacent chunks. Higher overlap reduces context loss at boundaries."
+    help="Characters shared between adjacent chunks."
 )
 
 k = st.sidebar.slider(
@@ -41,7 +47,7 @@ k = st.sidebar.slider(
     min_value=1,
     max_value=8,
     value=3,
-    help="How many chunks to retrieve per question. More chunks = more context but higher cost."
+    help="How many chunks to retrieve per question."
 )
 
 # ============ MAIN AREA ============
@@ -55,7 +61,6 @@ with tab1:
     uploaded_file = st.file_uploader("Upload PDF document", type=["pdf"])
 
     if uploaded_file:
-        # Save uploaded file
         pdf_path = os.path.join(
             os.path.dirname(__file__), '..', 'data', uploaded_file.name
         )
@@ -64,10 +69,11 @@ with tab1:
         st.success(f"Uploaded: {uploaded_file.name}")
 
         st.write("**Current Settings:**")
-        col1, col2, col3 = st.columns(3)
-        col1.metric("Chunk Size", chunk_size)
-        col2.metric("Chunk Overlap", chunk_overlap)
-        col3.metric("K (chunks retrieved)", k)
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Pipeline", pipeline_type)
+        col2.metric("Chunk Size", chunk_size)
+        col3.metric("Chunk Overlap", chunk_overlap)
+        col4.metric("K", k)
 
         if st.button("▶️ Run Evaluation", type="primary"):
             with st.spinner("Running evaluation — this takes 2 to 3 minutes..."):
@@ -76,7 +82,8 @@ with tab1:
                         pdf_path=pdf_path,
                         chunk_size=chunk_size,
                         chunk_overlap=chunk_overlap,
-                        k=k
+                        k=k,
+                        pipeline_type=pipeline_type
                     )
                     st.session_state.results = results
                     st.success("Evaluation complete!")
@@ -90,7 +97,6 @@ with tab2:
     st.subheader("Evaluation Results")
 
     if "results" not in st.session_state:
-        # Check for saved results
         results_dir = os.path.join(os.path.dirname(__file__), '..', 'results')
         result_files = sorted([
             f for f in os.listdir(results_dir) if f.endswith('.json')
@@ -109,18 +115,16 @@ with tab2:
         scores = results["overall_scores"]
         settings = results["settings"]
 
-        # Settings used
-        st.write(f"**Settings:** chunk_size={settings['chunk_size']}, "
+        st.write(f"**Pipeline:** {results.get('pipeline_type', 'Naive RAG')} | "
+                f"**Settings:** chunk_size={settings['chunk_size']}, "
                 f"chunk_overlap={settings['chunk_overlap']}, "
                 f"k={settings['k']}")
 
-        # Overall score
         overall = scores["overall"]
         color = "green" if overall >= 0.8 else "orange" if overall >= 0.6 else "red"
         st.markdown(f"### Overall Score: <span style='color:{color}'>{overall:.2f}</span>",
                    unsafe_allow_html=True)
 
-        # Metric cards
         col1, col2, col3, col4 = st.columns(4)
 
         def score_color(score):
@@ -130,26 +134,21 @@ with tab2:
 
         col1.metric(
             f"{score_color(scores['faithfulness'])} Faithfulness",
-            f"{scores['faithfulness']:.2f}",
-            help="Is the answer grounded in the retrieved context?"
+            f"{scores['faithfulness']:.2f}"
         )
         col2.metric(
             f"{score_color(scores['answer_relevancy'])} Answer Relevancy",
-            f"{scores['answer_relevancy']:.2f}",
-            help="Does the answer address the question?"
+            f"{scores['answer_relevancy']:.2f}"
         )
         col3.metric(
             f"{score_color(scores['context_precision'])} Context Precision",
-            f"{scores['context_precision']:.2f}",
-            help="Are the retrieved chunks relevant?"
+            f"{scores['context_precision']:.2f}"
         )
         col4.metric(
             f"{score_color(scores['context_recall'])} Context Recall",
-            f"{scores['context_recall']:.2f}",
-            help="Did retrieval find all important information?"
+            f"{scores['context_recall']:.2f}"
         )
 
-        # Radar chart
         st.subheader("Metric Radar Chart")
         categories = ["Faithfulness", "Answer Relevancy", "Context Precision", "Context Recall"]
         values = [
@@ -170,7 +169,7 @@ with tab2:
             showlegend=False,
             height=400
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
 with tab3:
     st.subheader("Question-by-Question Analysis")
@@ -181,7 +180,6 @@ with tab3:
         results = st.session_state.results
         detailed = results["detailed_results"]
 
-        # Build dataframe
         df = pd.DataFrame([{
             "Question": r["question"][:60] + "...",
             "Faithfulness": round(r["faithfulness"], 2),
@@ -190,7 +188,6 @@ with tab3:
             "Context Recall": round(r["context_recall"], 2),
         } for r in detailed])
 
-        # Heatmap
         st.subheader("Score Heatmap")
         fig = px.imshow(
             df.set_index("Question")[["Faithfulness", "Answer Relevancy",
@@ -200,9 +197,8 @@ with tab3:
             aspect="auto"
         )
         fig.update_layout(height=400)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
-        # Per question detail
         st.subheader("Question Detail")
         for i, r in enumerate(detailed):
             with st.expander(f"Q{i+1}: {r['question']}"):
@@ -220,7 +216,12 @@ with tab3:
                     st.metric("Context Recall", f"{r['context_recall']:.2f}")
                 st.write("**Retrieved Chunks:**")
                 for j, ctx in enumerate(r["contexts"]):
-                    st.text_area(f"Chunk {j+1}", ctx[:300] + "...", height=100, key=f"chunk_{i}_{j}")
+                    st.text_area(
+                        f"Chunk {j+1}",
+                        ctx[:300] + "...",
+                        height=100,
+                        key=f"chunk_{i}_{j}"
+                    )
 
 if __name__ == "__main__":
     pass
